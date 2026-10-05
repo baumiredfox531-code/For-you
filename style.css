@@ -1,0 +1,63 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: black;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#c {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.flower-note {
+  position: absolute;
+  bottom: clamp(28px, 8vh, 72px);
+  left: 0;
+  width: 100%;
+  text-align: center;
+  color: #fff7fb;
+  text-shadow: 0 0 12px rgba(255, 140, 180, 0.9);
+  z-index: 2;
+  pointer-events: none;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 700ms ease, visibility 0s linear 700ms;
+}
+
+.flower-note.is-visible {
+  opacity: 1;
+  visibility: visible;
+  transition-delay: 0s;
+}
+
+.flower-note h1 {
+  display: inline-block;
+  max-width: calc(100vw - 32px);
+  font-size: clamp(1.45rem, 4vw, 4rem);
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  margin: 0;
+  padding-inline: 16px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .flower-note {
+    transition: none;
+  }
+}
